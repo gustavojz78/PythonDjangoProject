@@ -1,0 +1,37 @@
+{% extends "appblog/base2.html"%}
+{%block main_content%}
+<style>
+    body{
+        background-color: yellow
+    }
+
+</style>
+    <h1>Sección de comentarios</h1>
+        <div class="container mt-5">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="table-success">Id</th>
+                        <th class="table-success">Creador</th>
+                        <th class="table-success">Titulo</th>
+                        <th class="table-success">Publicación</th>
+                        <th class="table-success">Fecha</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for comment in comments %}
+                        <tr>
+                        <td>{{comment.id}}</td> 
+                        <td>{{comment.creador}} </td>
+                        <td>{{comment.encabezado}} </td> 
+                        <td>{{comment.texto}} </td>   
+                        <td>{{comment.fechaCreacion}} </td>
+                        <td><a href= "{% url 'editarComentario' comment.id %}" ><font color="blue">Editar</font></a></td>   
+                        <td><a href= "{% url 'eliminarComentario' comment.id %}" ><font color="red">Borrar</font></a></td>   
+                        </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+{%endblock%}

@@ -1,0 +1,28 @@
+{%extends "appblog/base2.html" %}
+
+{% block main_content %}
+<style>
+    body{
+        background-color: rgb(251, 255, 0);
+    }
+
+</style>
+
+<body>
+    {% if miFormulario3.errors %}
+        <p style="color: red;"> Estan mal los datos </p>
+    {% endif %}
+    <form action="" method="POST" size="50">{% csrf_token %}
+    
+        <p>Formulario para subir o editar un comentario.</p>
+        <table>
+            {{ miFormulario3.as_table }}
+        </table>
+
+        <input type="submit" value="cargar datos">
+    </form>
+</body>
+            
+{% endblock%}
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+{% block main_content%}
+
+<style>
+    body{
+        background-color: yellow;
+    }
+
+</style>
+
+<body>
+
+    <h1><u>Resultados de busqueda para comentario:</u> {{creador}}</h1>
+    {% if comentarios %}
+
+    <ul>
+        {% for c in comentarios %}
+        <li>El comentario de {{c.creador}} es "{{c.texto}}" fue escrito el día: {{c.fechaCreacion}}</li>
+        {% endfor%}
+    </ul>
+
+        {% else%}
+            <p>No hay comentarios o usuario no registrado</p>
+
+    {%endif%}
+
+{% endblock%}
+</body>
+
+</html>
